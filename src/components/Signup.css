@@ -1,0 +1,103 @@
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; /* Ensure it takes full width */
+}
+
+.signup-div {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    border: 1px solid gray;
+    padding: 20px;
+    max-width: 300px; 
+    width: 100%; 
+    height: 400px; 
+    background-color: white;
+}
+
+.signup-div h1 {
+    padding-top: 40px;
+    font-size: 20px;
+}
+
+.signup-div .signup-hylyt {
+    color: #0073b1;
+    font-weight: bolder;
+}
+
+.signup-form {
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signup-form label {
+    text-align: start;
+}
+
+.signup-form div {
+    display: flex;
+    border: 0.3px solid grey;
+    border-radius: 3px;
+    align-items: center;
+}
+
+.signup-form div:focus-within {
+    border-width: 2px;
+    border-color: #0073b1;
+}
+
+.signup-form input {
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 15px;
+    width: 250px;
+    height: 25px;
+    border: none;
+    outline:none;
+    border-radius: 3px;
+    background-color: transparent;
+}
+
+.signup-form .input-password span {
+    cursor: pointer;
+    font-size: small;
+    padding-right: 7px;
+    padding-top: 2px;
+}
+
+.signup-form p {
+    font-size: 10px;
+    color: gray;
+    font-weight: lighter;
+}
+
+.signup-form p .span-ele {
+    color: #0073b1;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-form input.submit {
+    width: 100%;
+    height: 27px;
+    background-color: #0073b1;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.signup-form .signup-span {
+    text-align: center;
+    align-items: center;
+    font-size: 13px;
+    padding-bottom: 15px;
+    margin-bottom: 15px
+}

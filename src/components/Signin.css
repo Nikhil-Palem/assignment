@@ -1,0 +1,102 @@
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; /* Ensure it takes full width */
+}
+
+.login-div {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    border: 1px solid gray;
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    height: 350px;
+    background-color: white;
+}
+
+.login-div h1 {
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.login-div .signin-hylyt {
+    color: #0073b1;
+    font-weight: bolder;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 20px;
+}
+
+.login-form label {
+    text-align: start;
+}
+
+.login-form .input-username,
+.login-form .input-password {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.login-form .input-username input,
+.login-form .input-password input {
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 15px;
+    width: 250px;
+    height: 25px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: transparent;
+}
+.login-form div:focus-within{
+    border-width: 2px;
+    border-color: #0073b1;
+}
+
+.login-form .input-password span {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: small;
+    padding-top: 2px;
+}
+
+.login-form .submit {
+    width: 100%;
+    height: 27px;
+    background-color: #0073b1;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-form .signup-span {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.login-form .signup-span a {
+    color: #0073b1;
+    font-weight: bold;
+}
+
+.login-form .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
