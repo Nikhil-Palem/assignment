@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="home-container">
       <div className="home-content">
-        <h2>Welcome to Your App!</h2>
+        <h2>Welcome!!</h2>
         <p>Sign in or sign up to continue.</p>
       </div>
       <div className="home-links">

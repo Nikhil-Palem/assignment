@@ -61,7 +61,7 @@ function Signup() {
                         <span onClick={handleVisibility}>{!visibility ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />}</span>
                     </div>
 
-                    <p>By clicking Agree & Join, you agree to the Travel Book <span className="span-ele">User Agreement, Privacy</span> Policy, and <span className="span-ele">Cookie Policy.</span></p>
+                    <p>By clicking Agree & Join, you agree to the our website <span className="span-ele">User Agreement, Privacy</span> Policy, and <span className="span-ele">Cookie Policy.</span></p>
                     <input type="submit" value="Agree and join" className="submit" />
                     <span className='signup-span'>Already a member? <Link to="/signin">Log In</Link> </span>
                     {errorMessage && <p style={{ color: "red", fontSize: "12px" }}>{errorMessage}</p>}
