@@ -9,7 +9,7 @@ function Products() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(`${process.env.BACKEND_URL}/products`);
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`);
                 setProducts(response.data);
             } catch (error) {
                 console.error("Error fetching products:", error);

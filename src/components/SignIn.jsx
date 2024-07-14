@@ -20,7 +20,7 @@ function SignIn({ SignIn }) {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`${process.env.BACKEND_URL}/signIn`, {
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/signIn`, {
                 username,
                 password
             });
