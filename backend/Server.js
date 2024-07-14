@@ -128,11 +128,11 @@ app.get("/products", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, '../Assessment')));
+// app.use(express.static(path.join(__dirname, '../Assessment')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Assessment/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../Assessment/index.html'));
+// });
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
