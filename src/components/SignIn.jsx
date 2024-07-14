@@ -20,7 +20,8 @@ function SignIn({ SignIn }) {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/signIn`, {
+            const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
+            const response = await axios.post(`${backendUrl}/signIn`, {
                 username,
                 password
             });
@@ -36,7 +37,7 @@ function SignIn({ SignIn }) {
         }
         setPassword('');
         setUsername('');
-        setEmail('');
+        // setEmail('');
     };
 
     return (

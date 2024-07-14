@@ -18,7 +18,7 @@ function App() {
     setUserId(id);
     setUserName(username);
   };
-
+console.log(import.meta.env.REACT_APP_BACKEND_URL);
   return (
     <Router>
       <div className="app">
