@@ -12,7 +12,11 @@ const saltRounds = 10;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://assignment-pi-gray.vercel.app/',
+}));
+
 
 const db = new pg.Client({
     user: "postgres",
