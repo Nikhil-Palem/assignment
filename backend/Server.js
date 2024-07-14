@@ -6,33 +6,34 @@ const cors = require('cors');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
 
+
+const { Pool } = pg;
+
+
+
 const app = express();
-const port = 3000;
 const saltRounds = 10;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "assessment",
-    password: "Nani@2003",
-    port: "5432",
-});
-db.connect();
+const pool = new Pool({
+    connectionString: process.env.POSTGRES_URL,
+  });
+
+pool.connect();
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'nikhilpalem93466@gmail.com',
-        pass: 'axgf hfed qhiz pxkp'   
+        user: process.env.EMAIL_ID,
+        pass: process.env.PASS 
     }
 });
 
 const sendConfirmationEmail = (email, token) => {
     const mailOptions = {
-        from: 'nikhilpalem93466@gmail.com', 
+        from: process.env.EMAIL_ID, 
         to: email,                 
         subject: 'Email Confirmation',
         html: `<p>Thank you for registering. Please confirm your email by clicking on the link below:</p>
@@ -128,5 +129,6 @@ app.get("/products", async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
+module.exports=pool
