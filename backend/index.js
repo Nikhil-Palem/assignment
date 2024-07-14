@@ -15,7 +15,15 @@ const saltRounds = 10;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://assignment-frontend-beta.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 204
+};
+app.use(cors(corsOptions));
 
 const db = new Pool({
   connectionString: process.env.POSTGRES_URL,
@@ -37,7 +45,7 @@ const sendConfirmationEmail = (email, token) => {
     to: email,
     subject: 'Email Confirmation',
     html: `<p>Thank you for registering. Please confirm your email by clicking on the link below:</p>
-           <a href="http://localhost:3000/confirm-email?token=${token}">Confirm Email</a>`
+           <a href="https://assignment-frontend-beta.vercel.app/confirm-email?token=${token}">Confirm Email</a>`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -80,7 +88,7 @@ app.get("/confirm-email", async (req, res) => {
     if (result.rows.length > 0) {
       res.send("Email confirmed successfully! You can now log in.");
     } else {
-      res.send("Please verify your mail and try signing in....");
+      res.send("Invalid token. Please verify your email and try again.");
     }
   } catch (err) {
     res.json({ error: "Internal server error..." });
@@ -128,13 +136,8 @@ app.get("/products", async (req, res) => {
   }
 });
 
-// app.use(express.static(path.join(__dirname, '../Assessment')));
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../Assessment/index.html'));
-// });
-app.use("/",(req,res)=>{
-    res.send("Server is running");
+app.use("/", (req, res) => {
+  res.send("Server is running");
 });
 
 app.listen(port, () => {
