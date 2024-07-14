@@ -133,6 +133,9 @@ app.get("/products", async (req, res) => {
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(__dirname, '../Assessment/index.html'));
 // });
+app.use("/",(req,res)=>{
+    res.send("Server is running");
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
