@@ -24,7 +24,7 @@ function Signup() {
         try {
             const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
         console.log('Backend URL:', backendUrl);
-            const response = await axios.post(`${backendUrl}/signup`, { username, email, password });
+            const response = await axios.post(`${backendUrl}signup`, { username, email, password });
             if (response.data.error) {
                 setErrorMessage(response.data.error);
             } else {

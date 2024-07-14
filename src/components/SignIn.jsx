@@ -21,7 +21,7 @@ function SignIn({ SignIn }) {
 
         try {
             const backendUrl = import.meta.env.REACT_APP_BACKEND_URL;
-            const response = await axios.post(`${backendUrl}/signIn`, {
+            const response = await axios.post(`${backendUrl}signIn`, {
                 username,
                 password
             });
