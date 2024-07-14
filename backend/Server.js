@@ -5,24 +5,30 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
-
+require('dotenv').config();
 
 const { Pool } = pg;
 
+console.log("PORT:", process.env.PORT);
+console.log("POSTGRES_URL:", process.env.POSTGRES_URL);
+console.log("EMAIL_ID:", process.env.EMAIL_ID);
+console.log("PASS:", process.env.PASS);
 
 
 const app = express();
+const port=process.env.PORT||3000
 const saltRounds = 10;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const pool = new Pool({
+const db = new Pool({
     connectionString: process.env.POSTGRES_URL,
-  });
+});
 
-pool.connect();
+db.connect().catch(err => console.log("DB Connection Error: ", err));
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -129,6 +135,6 @@ app.get("/products", async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
-module.exports=pool
+// module.exports=pool
