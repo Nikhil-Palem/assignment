@@ -14,7 +14,7 @@ function ConfirmEmail() {
 
             if (token) {
                 try {
-                    const response = await axios.get(`http://localhost:3000/confirm-email?token=${token}`);
+                    const response = await axios.get(`${process.env.BACKEND_URL}/confirm-email?token=${token}`);
                     console.log("Confirmation response:", response.data);
 
                     setMessage(response.data);

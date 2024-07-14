@@ -22,7 +22,7 @@ function Signup() {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:3000/signup", { username, email, password });
+            const response = await axios.post(`${process.env.BACKEND_URL}/signup`, { username, email, password });
             if (response.data.error) {
                 setErrorMessage(response.data.error);
             } else {
