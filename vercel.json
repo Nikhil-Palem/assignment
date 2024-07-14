@@ -1,16 +1,32 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "./index.js",
-        "use": "@vercel/node"
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "Assessment/index.html",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "Assessment"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Assessment/index.html"
+    }
+  ],
+  "env": {
+    "PORT": "3000",
+    "POSTGRES_URL": "postgres://default:H4CPRarAS0zk@ep-hidden-lab-a4lb9ly0-pooler.us-east-1.aws.neon.tech/verceldb?sslmode=require",
+    "EMAIL_ID": "nikhilpalem93466@gmail.com",
+    "PASS": "axgf hfed qhiz pxkp"
   }
-  
+}
